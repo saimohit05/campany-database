@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <title>login page </title>
+        <style>
+             #email_error{
+           margin-top: 5px;
+           width: 345px;
+           font-size: 13px;
+           color: #c62828;
+           background: rgba(255,0,0,0.1);
+           text-align: center;
+           padding: 5px 8px;
+           border-radius: 3px;
+           border: 1px solid #ef9a9a;
+           display: none;      
+       }
+       #name_error{
+        margin-top: 5px;
+           width: 345px;
+           font-size: 13px;
+           color: #c62828;
+           background: rgba(255,0,0,0.1);
+           text-align: center;
+           padding: 5px 8px;
+           border-radius: 3px;
+           border: 1px solid #ef9a9a;
+           display: none;
+       }
+       #pass1_error{
+        margin-top: 5px;
+           width: 345px;
+           font-size: 13px;
+           color: #c62828;
+           background: rgba(255,0,0,0.1);
+           text-align: center;
+           padding: 5px 8px;
+           border-radius: 3px;
+           border: 1px solid #ef9a9a;
+           display: none;
+          
+       }
+       #pass2_error{
+        margin-top: 5px;
+           width: 345px;
+           font-size: 13px;
+           color: #c62828;
+           background: rgba(255,0,0,0.1);
+           text-align: center;
+           padding: 5px 8px;
+           border-radius: 3px;
+           border: 1px solid #ef9a9a;
+           display: none;
+         
+       }
+       #phone_error{
+        margin-top: 5px;
+           width: 345px;
+           font-size: 13px;
+           color: #c62828;
+           background: rgba(255,0,0,0.1);
+           text-align: center;
+           padding: 5px 8px;
+           border-radius: 3px;
+           border: 1px solid #ef9a9a;
+           display: none;
+        
+       }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="#" classname="HOME NEEDS">Home NEEDS</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="login.html">LOGIN-IN</a></li>
+            </ul>
+        </nav>
+            <div class="row top_margin">
+                <div class="col-xs-6 col-xs-offset-3">
+                    <div class="panel panel_primary"></div>
+                        <div class="panel_body">
+                            <label><h1> USER REGISTRATION </h1></label>
+                            <form method="post" id="form">
+                                <div class="form-group">
+                                    <label for="email">EMAIL</label>
+                                    <input type="email" class="form-control" id="email" name="email">
+                                    <div id="email_error">Please fill up your email</div>
+                                </div>
+                                
+                        <div class="form-group">
+                                    <label for="first_name"> NAME</label>
+                                    <input type="text" class="form-control" id="first_name" name="first_name" >
+                                    <div id="name_error">Please fill up your name</div>
+                        </div>
+                                
+                        <div class="form-group">
+                                    <label for="lat_name">PASSWORD</label>
+                                    <input type="password" class="form-control" id="pass1" name="last_name" >
+                                    <div id="pass1_error">Please fill up your password</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lat_name">CONFIRM PASSWORD</label>
+                            <input type="password" class="form-control" id="pass2" name="last_name" >
+                            <div id="pass2_error">YOUR PASSWORD DID NOT MATCH </div>
+                </div>
+                         <div class="form-group">
+                                    <label for="phone">PHONE</label>
+                                    <input type="text" class="form-control" id="phone" name="phone" >
+                                    <div id="phone_error">Please fill up your phone number</div>
+                        </div>
+                                 <div class="form-group">
+                                    <input class="btn" type="submit" value="submit">
+                                   
+                        </div>
+                            </form>
+                    </div>
+                </div>
+            </div>
+            <script>
+                var form =document.querySelector("#form");
+                var email = document.querySelector("#email");
+                var fname =document.querySelector("#first_name");
+                var pass1 = document.querySelector("#pass1");
+                var pass2 = document.querySelector("#pass2");
+                var phone = document.querySelector("#phone");
+
+                var email_error = document.querySelector("#email_error");
+                var name_error =document.querySelector("#name_error");
+                var pass1_error = document.querySelector("#pass1_error");
+                var pass2_error = document.querySelector("#pass2_error");
+                var phone_error = document.querySelector("#phone_error");
+
+
+                form.addEventListener('submit',check);
+                function check(e)
+                {
+                    e.preventDefault();
+                    if( email.value === '')
+                    {
+                        email.style.border="1px solid red";
+                        email_error.style.display="block";
+                        setTimeout(()=> email_error.remove(),3000);
+                        //email.focus();
+                        //return false;
+                    }
+                   else if(fname.value === '')
+                    {
+                        fname.style.border="1px solid red";
+                        name_error.style.display="block";
+                        setTimeout(()=> name_error.remove(),3000);
+                        //pass.focus();
+                        //return false;
+                    }
+                    else if(pass1.value === '')
+                    {
+                        pass1.style.border="1px solid red";
+                        pass1_error.style.display="block";
+                        setTimeout(()=> pass1_error.remove(),3000);
+                        //pass.focus();
+                        //return false;
+                    } 
+                    else if(pass2.value !== pass1.value)
+                    {
+                        pass2.style.border="1px solid red";
+                        pass2_error.style.display="block";
+                        alert("re-enter your password");
+                        setTimeout(()=> pass2_error.remove(),3000);
+                        //pass.focus();
+                        //return false;
+                    }
+                    else if(phone.value === '')
+                    {
+                        phone.style.border="1px solid red";
+                        phone_error.style.display="block";
+                        setTimeout(()=> phone_error.remove(),3000);
+                        //pass.focus();
+                        //return false;
+                    }
+                    else
+                    {
+                        document.location.href="jashuva.html";
+                    }
+                }
+            </script>
+    </body>
+</html>
+D:\javascript projects\images\30.jpg
